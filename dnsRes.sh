@@ -9,8 +9,8 @@ echo "Autor: Eduardo Amaral"
 echo "youtube.com.br/faciltech"
 if [ "$1" == "" ];
 then
-	echo "Use da seguinte forma: ./dnsrev 37.59.174 1 100"
-	echo "Use também apenas ./dnsrev 37.59.174 "	
+	echo "Use da seguinte forma: ./dnsRes.sh dominio.com.br"
+	echo "Use da seguinte forma: ./dnsRes 37.59.174 1 100"
 	echo " 1 100 ==> é o range dos ips"
 elif [ $# -lt 2 ];then
 	echo "################ Endereço IP ####################"
@@ -37,7 +37,7 @@ elif [ $# -lt 2 ];then
 	resultado=$(whois $ip | egrep "NetRange|inetnum")
         echo "O Range da Rede é: ====>  "$resultado
 	echo "**** Você pode suar agora o Range para fazer uma busca mais elaborada. ****"
-	echo "**** Ex: ./dnsrev.sh 192.168.0 1 254 OBS: use o range encontrado ****"
+	echo "**** Ex: ./dnsRes.sh 192.168.0 1 254 OBS: use o range encontrado ****"
 	echo " "
 	echo "...FIM DA BUSCA..."
 
