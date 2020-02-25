@@ -36,7 +36,7 @@ elif [ $# -lt 2 ];then
 	echo "############## Range dos IPs #################"
 	resultado=$(whois $ip | egrep "NetRange|inetnum")
         echo "O Range da Rede é: ====>  "$resultado
-	echo "**** Você pode suar agora o Range para fazer uma busca mais elaborada. ****"
+	echo "**** Você pode usar agora o Range para fazer uma busca mais elaborada. ****"
 	echo "**** Ex: ./dnsRes.sh 192.168.0 1 254 OBS: use o range encontrado ****"
 	echo " "
 	echo "...FIM DA BUSCA..."
