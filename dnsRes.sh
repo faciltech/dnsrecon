@@ -26,12 +26,16 @@ elif [ $# -lt 2 ];then
 	done 
 	echo " "
 	echo "############### Outros Endereços ##############"
-	echo -n " DNS TXT =>"; host -t txt $1
-	echo -n " DNS HINFO =>"; host -t HINFO $1
-	echo -n " DNS AAAA =>"; host -t AAAA $1
-	echo -n " DNS SOA =>"; host -t SOA $1
-	echo -n " DNS MX =>"; host -t MX $1
-	echo -n " DNS PTR =>"; host -t PTR $1
+	echo -n " DNS A =>"; host -t A $1
+        echo -n " DNS SRV =>"; host -t SRV $1
+        echo -n " DNS CNAME =>"; host -t CNAME $1
+        echo -n " DNS TXT =>"; host -t txt $1
+        echo -n " DNS SPF =>"; host -t SPF $1
+        echo -n " DNS HINFO =>"; host -t HINFO $1
+        echo -n " DNS AAAA =>"; host -t AAAA $1
+        echo -n " DNS SOA =>"; host -t SOA $1
+        echo -n " DNS MX =>"; host -t MX $1
+        echo -n " DNS PTR =>"; host -t PTR $1
 	echo " "
 	echo "############## Range dos IPs #################"
 	resultado=$(whois $ip | egrep "NetRange|inetnum")
