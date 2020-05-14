@@ -37,6 +37,10 @@ elif [ $# -lt 2 ];then
         echo -n " DNS MX =>"; host -t MX $1
         echo -n " DNS PTR =>"; host -t PTR $1
 	echo " "
+	echo "####### Busca de Subdominios Takeover #########"
+	for palavra in $(cat lista.txt);do
+                host -t CNAME $palavra.$1 | grep "alias for" | cut -d" " -f1,6
+	done
 	echo "############## Range dos IPs #################"
 	resultado=$(whois $ip | egrep "NetRange|inetnum")
         echo "O Range da Rede é: ====>  "$resultado
