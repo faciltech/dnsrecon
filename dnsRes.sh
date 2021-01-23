@@ -5,7 +5,7 @@ echo "  / /_  / /| |/ /    / // /   / / / __/ / /   / /_/ / ";
 echo " / __/ / ___ / /____/ // /___/ / / /___/ /___/ __  /  ";
 echo "/_/   /_/  |_\____/___/_____/_/ /_____/\____/_/ /_/   ";
 echo "                                                      ";
-echo "Autor: Eduardo Amaral"
+echo "Autor: Eduardo Amaral - eduardo4maral@protonmail.com"
 echo "youtube.com.br/faciltech"
 if [ "$1" == "" ];
 then
