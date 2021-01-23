@@ -4,9 +4,12 @@ echo "   / ____/   | / ____/  _/ / /_  __/ ____/ ____/ / / /";
 echo "  / /_  / /| |/ /    / // /   / / / __/ / /   / /_/ / ";
 echo " / __/ / ___ / /____/ // /___/ / / /___/ /___/ __  /  ";
 echo "/_/   /_/  |_\____/___/_____/_/ /_____/\____/_/ /_/   ";
-echo "                                                      ";
+echo "    ";
 echo "Autor: Eduardo Amaral - eduardo4maral@protonmail.com"
-echo "youtube.com.br/faciltech"
+echo "You Tube : https://www.youtube.com/faciltech"
+echo "github   : https://github.com/Amaroca"
+echo "Facebook : https://www.facebook.com/faciltech123"
+
 if [ "$1" == "" ];
 then
 	echo "Use da seguinte forma: ./dnsRes.sh dominio.com.br"
