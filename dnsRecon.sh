@@ -1,34 +1,30 @@
 #!/bin/bash
-echo "    _________   ____________  ____________________  __";
-echo "   / ____/   | / ____/  _/ / /_  __/ ____/ ____/ / / /";
-echo "  / /_  / /| |/ /    / // /   / / / __/ / /   / /_/ / ";
-echo " / __/ / ___ / /____/ // /___/ / / /___/ /___/ __  /  ";
-echo "/_/   /_/  |_\____/___/_____/_/ /_____/\____/_/ /_/   ";
-echo "    ";
+figlet DNSRECON
 echo "Autor: Eduardo Amaral - eduardo4maral@protonmail.com"
 echo "You Tube : https://www.youtube.com/faciltech"
 echo "github   : https://github.com/Amaroca"
 echo "Facebook : https://www.facebook.com/faciltech123"
+echo "Linkedin : https://www.linkedin.com/in/eduardo-a-02194451/
 
 if [ "$1" == "" ];
 then
-	echo "Use da seguinte forma: ./dnsRes.sh dominio.com.br"
+	echo "Use da seguinte forma: ./dnsRes.sh dominio.com.br <wordlist>"
 	echo "Use da seguinte forma: ./dnsRes 37.59.174 1 100"
 	echo " 1 100 ==> é o range dos ips"
-elif [ $# -lt 2 ];then
-	echo "################ Endereço IP ####################"
+elif [ $# -eq 2 ];then
+	echo -e "################ \e[1;33;40mEndereço IP\e[0m ####################"
 	echo -n "IP: "; host $1 | cut -d" " -f4 | grep -v handled
 	ip=$(host $1 | cut -d" " -f4 | grep -v handled)
 	echo " "
-	echo "################# Endereço de DNS ################"
+	echo -e "################# \e[1;33;40mEndereços de DNS \e[0m  ################"
 	host -t ns $1 | cut -d" " -f1,4 | sed 's/.$//g'
 	echo
-	echo "################ Transferencia de Zona ############"
+	echo -e "################ \e[1;33;40mTransferencia de Zona \e[0m ############"
 	for resp in $(host -t ns $1 | cut -d" " -f1,4 | sed 's/.$//g');do
 		host -la $1 $resp | grep -v "REFUSED" | grep -v "Trying" | grep -v "Transfer failed" 2>/dev/null
 	done 
 	echo " "
-	echo "############### Outros Endereços ##############"
+	echo -e "############### \e[1;33;40mOutros Endereços \e[0m ##############"
 	echo -n " DNS A =>"; host -t A $1
         echo -n " DNS SRV =>"; host -t SRV $1
         echo -n " DNS CNAME =>"; host -t CNAME $1
@@ -40,22 +36,22 @@ elif [ $# -lt 2 ];then
         echo -n " DNS MX =>"; host -t MX $1
         echo -n " DNS PTR =>"; host -t PTR $1
 	echo " "
-	echo "####### Busca de Subdominios Takeover #########"
-	for palavra in $(cat lista.txt);do
+	echo -e "####### \e[1;33;40mBusca de Subdominios Takeover \e[0m #########"
+	for palavra in $(cat $2);do
                 host -t CNAME $palavra.$1 | grep "alias for" | cut -d" " -f1,6
 	done
-	echo "############## Range dos IPs #################"
-	resultado=$(whois $ip | egrep "NetRange|inetnum")
-        echo "O Range da Rede é: ====>  "$resultado
-	echo "**** Você pode usar agora o Range para fazer uma busca mais elaborada. ****"
-	echo "**** Ex: ./dnsRes.sh 192.168.0 1 254 OBS: use o range encontrado ****"
-	echo " "
-	echo "...FIM DA BUSCA..."
+	echo -e "\e[1;33;40m...FIM DA BUSCA...\e[0m"
 
-else
-	echo "############### RESULTADOS ####################"
+elif [ $# -eq 4 ];then
+	echo -e "############### \e[1;33;40mRESULTADOS \e[0m ####################"
 	for ip in $(seq  $2 $3);do
 	host $1.$ip | grep -v $1 | grep -v NXDOMAIN | cut -d" " -f1,5 | sed 's/.$//g';
 	done
-	echo "...FIM DA BUSCA..."
+	echo ""
+	echo -e "\e[1;33;40m..FIM DA BUSCA...\e[0m"
+else
+	echo "Use da seguinte forma: ./dnsRes.sh dominio.com.br <wordlist>"
+        echo "Use da seguinte forma: ./dnsRes 37.59.174 1 100"
+        echo " 1 100 ==> é o range dos ips"
+
 fi
