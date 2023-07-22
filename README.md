@@ -14,11 +14,16 @@
 
 </ul>
 <h2>Forma de uso</h2>
-
-<code>
-./dnsRes.sh faciltech.info /usr/share/seclists/Discovery/DNS/fierce-hostlist.txt
+<h3>Baixar o utilitário</h3>
+<code>git clone https://github.com/faciltech/dnsrecon.git</br>
 </code>
 
+![image](https://github.com/faciltech/dnsrecon/assets/3409713/2ac7571e-a7d1-4b51-a65c-53c8b49f8a94)
+<h3>Como usar?</h3>
+<h4>Primeira forma: Utilizando o Dominio do site e uma wordlist.</h4>
+<code>./dnsRes.sh faciltech.info /usr/share/seclists/Discovery/DNS/fierce-hostlist.txt</code>
+<h4>Segunda forma: Utilizando o ip e um range de portas</h4>
+<code>./dnsRes.sh 127.0.0.1 10 254</code>
 <p><b>Autor: Eduardo Amaral - eduardo4maral@protonmail.com</b></p>
 
 
