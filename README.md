@@ -1,5 +1,5 @@
 <h1>DnsRecon</h1>
-<p>Um programa para verificar endereços DNS de um domínio, tentar a transferência e coletar algumas informações, como IP, RANGE, e diversos tipos de endereços DNS.</p>
+<p>Um programa para verificar endereços DNS de um domínio, tenta a transferência e coletar algumas informações, como IP, RANGE, e diversos tipos de endereços DNS.</p>
 <p>O <b>DnsRecon</b> é utilitário para extrair informações de um dns</p>
 
 ![image](https://github.com/faciltech/resdns/assets/3409713/25f6bbb0-8422-466f-8ed8-1c6d3c9ce9fd)
