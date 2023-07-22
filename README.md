@@ -19,8 +19,15 @@
 ```
 git clone https://github.com/faciltech/dnsrecon.git
 ```
-
 ![image](https://github.com/faciltech/dnsrecon/assets/3409713/2ac7571e-a7d1-4b51-a65c-53c8b49f8a94)
+
+```
+cd dnsrecon/
+```
+```
+chmod +x dnsRecon.sh
+```
+
 <h3>Como usar?</h3>
 <h4>Primeira forma: Utilizando o Dominio do site e uma wordlist.</h4>
 
